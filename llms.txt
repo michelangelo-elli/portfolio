@@ -1,0 +1,37 @@
+# Michelangelo Elli — Data Analyst
+
+> Portfolio professionnel de Michelangelo Elli, Data Analyst formé au sein du parcours OpenClassrooms « Data Analyst » (certification RNCP37837, niveau 6 — bac+3/4), 2025-2026. 12 projets professionnalisants couvrant Python, SQL, Power BI, DBT, statistiques et Machine Learning. Site trilingue (français, anglais, italien).
+
+## Profil
+
+- **Métier visé** : Data Analyst / Consultant data / Business Analyst
+- **Compétences clés** : Python (pandas, Pandera, scikit-learn), SQL, Power BI, DBT, Excel avancé, statistiques descriptives et inférentielles, détection d'anomalies (IQR, Isolation Forest), validation de données, documentation de projet, cahier des charges fonctionnel
+- **Posture** : approche de consultant — contexte métier, démarche justifiée, résultats mesurés, limites assumées
+- **Veille** : système de veille métier et technologique structuré (Google Alerts, flux RSS Feedly, newsletters, revue mensuelle), évalué selon 6 critères : qualité, biais, temps, reproductibilité, sécurité/conformité, sobriété
+
+## Projets (13)
+
+1. Faites une analyse de ventes pour un e-commerce — analyse de ventes, indicateurs
+2. Requêtez une base de données avec SQL — requêtes et exploration
+3. Réalisez une étude de santé publique avec R ou Python — étude statistique
+4. Créez et utilisez une base de données immobilière avec SQL — modélisation et exploitation
+5. Optimisez la gestion des données d'une boutique avec R ou Python — nettoyage et rapprochement de données (BottleNeck)
+6. Créez un tableau de bord dynamique avec Power BI — suivi de projets
+7. Analysez l'évolution de profils sociodémographiques avec DBT — pipeline analytique
+8. Analysez les ventes d'une librairie avec R ou Python — analyse clients et ventes
+9. Faites une étude sur l'eau potable — étude internationale, indicateurs
+10. Produisez une étude de marché avec R ou Python — segmentation
+11. Détectez des faux billets avec R ou Python — classification, Machine Learning
+12. Améliorez un livrable data avec l'IA et construisez votre portfolio — veille, cahier des charges, benchmarks mesurés (Pandera vs Great Expectations, IQR/Isolation Forest, pandas vs Polars/DuckDB)
+
+## Livrables clés
+
+- [Notebook BottleNeck v2 (HTML)](livrables/p12/notebook-bottleneck-v2.html) : version améliorée du projet 5 avec validation Pandera, détection d'anomalies et benchmark de moteurs
+- [Documentation de la démarche (PDF)](livrables/p12/documentation-de-la-demarche.pdf) : veille, cahier des charges fonctionnel, POC, traçabilité des usages IA
+- [Glossaire des concepts (PDF)](livrables/p12/glossaire-concepts.pdf) : définitions des notions et sigles du projet 12
+- [Journal de veille](veille-log.md) : revue mensuelle datée et sourcée, évaluée selon 6 critères
+
+## Contact
+
+- Email : michelangelo.elli@example.com
+- GitHub et LinkedIn : liens dans le pied de page du site

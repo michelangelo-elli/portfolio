@@ -1,0 +1,32 @@
+ISTRUZIONI — Applicazione di rilevamento banconote false (ONCFM)
+================================================================
+
+CONTENUTO DELLA CARTELLA
+- detection_billets.py  -> lo script dell'applicazione
+- modele_final.pkl      -> il modello allenato (NON cancellarlo: senza di
+                           questo lo script non funziona)
+- billets_production.csv-> file di esempio per fare una prova
+
+COME SI USA (terminale, da dentro questa cartella)
+
+1) Prova con il file di esempio:
+   python detection_billets.py billets_production.csv
+
+2) Per analizzare un nuovo file (es. test_exam_p12.csv):
+   - copia il file CSV in questa cartella
+   - lancia:  python detection_billets.py test_exam_p12.csv
+   - i risultati vengono salvati in  test_exam_p12_resultats.csv
+
+3) Per analizzare una singola banconota scrivendo le misure a mano:
+   python detection_billets.py
+   (lo script ti chiede le 6 dimensioni una per una;
+    margin_low si può lasciare vuoto se non misurato)
+
+REQUISITI
+- Python con le librerie: pandas, scikit-learn, joblib
+- Se mancano:  pip install pandas scikit-learn joblib
+- Se il comando "python" non viene riconosciuto, usare il percorso
+  completo dell'interprete Python al posto di "python".
+
+IL CSV DEVE CONTENERE queste 6 colonne (separatore ; oppure ,):
+diagonal, height_left, height_right, margin_low, margin_up, length

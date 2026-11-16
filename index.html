@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michelangelo Elli — Data Analyst · Portfolio OpenClassrooms</title>
+  <meta name="description" content="Portfolio des 12 projets réalisés dans le cadre de la formation Data Analyst OpenClassrooms (RNCP37837, niveau 6) : Python, SQL, Power BI, DBT, statistiques.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="alternate" type="text/plain" href="llms.txt" title="LLMs">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Michelangelo Elli",
+    "jobTitle": "Data Analyst",
+    "description": "Data Analyst formé dans le parcours OpenClassrooms (RNCP37837, niveau 6), 2025-2026. 12 projets : Python, SQL, Power BI, DBT, statistiques, Machine Learning.",
+    "knowsAbout": ["Data analysis", "Python", "pandas", "SQL", "Power BI", "DBT", "Statistiques", "Machine Learning", "Data quality", "Veille technologique"],
+    "alumniOf": { "@type": "Organization", "name": "OpenClassrooms" },
+    "hasCredential": { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "RNCP37837 — Data Analyst, niveau 6" },
+    "knowsLanguage": ["fr", "en", "it"],
+    "email": "mailto:michelangelo.elli@example.com"
+  }
+  </script>
+</head>
+<body>
+
+  <header class="topbar" id="top">
+    <a class="brand" href="#top">M<span class="brand-dot">.</span>Elli</a>
+    <nav class="nav">
+      <a href="#apropos" data-i18n="nav.about"></a>
+      <a href="#competences" data-i18n="nav.skills"></a>
+      <a href="#veille" data-i18n="nav.veille"></a>
+      <a href="#projets" data-i18n="nav.projects"></a>
+      <a href="#contact" data-i18n="nav.contact"></a>
+    </nav>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button data-lang="fr" class="lang-btn">FR</button>
+      <button data-lang="en" class="lang-btn">EN</button>
+      <button data-lang="it" class="lang-btn">IT</button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <p class="hero-kicker" data-i18n="hero.kicker"></p>
+    <h1 class="hero-title">Michelangelo Elli</h1>
+    <p class="hero-sub" data-i18n="hero.sub"></p>
+    <p class="hero-desc" data-i18n="hero.desc"></p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">12</span><span class="stat-label" data-i18n="hero.stat1"></span></div>
+      <div class="stat"><span class="stat-num">15</span><span class="stat-label" data-i18n="hero.stat2"></span></div>
+      <div class="stat"><span class="stat-num">5</span><span class="stat-label" data-i18n="hero.stat3"></span></div>
+      <div class="stat"><span class="stat-num">2025–26</span><span class="stat-label" data-i18n="hero.stat4"></span></div>
+    </div>
+    <a class="btn-primary" href="#projets" data-i18n="hero.cta"></a>
+  </section>
+
+  <!-- ===== À PROPOS ===== -->
+  <section class="section" id="apropos">
+    <h2 class="section-title" data-i18n="about.title"></h2>
+    <div class="apropos-grid">
+      <div>
+        <p data-i18n="about.p1"></p>
+        <p data-i18n="about.p2"></p>
+      </div>
+      <div class="tools-card">
+        <h3 data-i18n="about.toolsTitle"></h3>
+        <div class="tools-cloud" id="tools-cloud"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMPÉTENCES RNCP ===== -->
+  <section class="section" id="competences">
+    <h2 class="section-title" data-i18n="skills.title"></h2>
+    <p class="section-intro" data-i18n="skills.intro"></p>
+    <p class="section-note" data-i18n="skills.note"></p>
+    <div class="bloc-grid" id="bloc-grid"><!-- généré par app.js --></div>
+  </section>
+
+  <!-- ===== VEILLE ===== -->
+  <section class="section" id="veille">
+    <h2 class="section-title" data-i18n="veille.title"></h2>
+    <p class="section-intro" data-i18n="veille.intro"></p>
+    <div class="bloc-grid" id="veille-grid"><!-- généré par app.js --></div>
+    <p class="veille-link"><a href="livrables/p12/documentation-de-la-demarche.pdf" target="_blank" rel="noopener">📄 Documentation complète du projet 12 (PDF) →</a></p>
+    <p class="veille-link"><a href="veille-log.md" target="_blank" rel="noopener">🗞️ Journal de veille — mis à jour chaque mois →</a></p>
+  </section>
+
+  <!-- ===== PROJETS ===== -->
+  <section class="section" id="projets">
+    <h2 class="section-title" data-i18n="projects.title"></h2>
+    <p class="section-intro" data-i18n="projects.intro"></p>
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all" data-i18n="filter.all"></button>
+      <button class="filter-btn" data-filter="BC01" data-i18n="filter.bc01"></button>
+      <button class="filter-btn" data-filter="BC02" data-i18n="filter.bc02"></button>
+      <button class="filter-btn" data-filter="BC03" data-i18n="filter.bc03"></button>
+      <button class="filter-btn" data-filter="BC04" data-i18n="filter.bc04"></button>
+      <button class="filter-btn" data-filter="BC05" data-i18n="filter.bc05"></button>
+    </div>
+    <div class="filters filters-tech" id="filters-tech"><!-- généré par app.js --></div>
+    <div class="project-grid" id="project-grid"><!-- généré par app.js --></div>
+    <p class="empty-state" id="empty-state" hidden data-i18n="projects.empty"></p>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <footer class="section contact" id="contact">
+    <h2 class="section-title" data-i18n="contact.title"></h2>
+    <p data-i18n="contact.text"></p>
+    <div class="contact-links">
+      <a href="mailto:michelangelo.elli@example.com">michelangelo.elli@example.com</a>
+      <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p class="footnote" data-i18n="contact.footnote"></p>
+    <p class="footnote llms-note"><span data-i18n="contact.llms"></span><a href="llms.txt" target="_blank" rel="noopener">llms.txt</a></p>
+  </footer>
+
+  <!-- ===== MODAL ===== -->
+  <div class="modal-backdrop" id="modal-backdrop" hidden>
+    <div class="modal" role="dialog" aria-modal="true" id="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

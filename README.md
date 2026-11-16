@@ -1,8 +1,10 @@
 # Portfolio Data Analyst — Michelangelo Elli
 
+**Sito online : [michelangelo-elli.github.io/portfolio](https://michelangelo-elli.github.io/portfolio/)**
+
 Portfolio dei 12 progetti realizzati nel percorso **Data Analyst OpenClassrooms** (certificazione RNCP37837, livello 6).
 
-Sito statico (HTML/CSS/JS, nessuna dipendenza) — pronto per GitHub Pages o Netlify.
+Sito statico (HTML/CSS/JS, nessuna dipendenza) — pubblicato su GitHub Pages.
 
 ## Contenuto
 

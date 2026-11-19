@@ -9493,21 +9493,21 @@ Outliers z&gt;3 : 17 produits
 <tbody>
 <tr>
 <th>pandas</th>
-<td>3.9</td>
+<td>3.3</td>
 <td>153748.1</td>
 <td>1.00</td>
 </tr>
 <tr>
 <th>Polars</th>
-<td>27.1</td>
+<td>1.9</td>
 <td>153748.1</td>
-<td>6.95</td>
+<td>0.58</td>
 </tr>
 <tr>
 <th>DuckDB</th>
-<td>11.3</td>
+<td>3.4</td>
 <td>153748.1</td>
-<td>2.90</td>
+<td>1.03</td>
 </tr>
 </tbody>
 </table>
@@ -9775,6 +9775,9 @@ Produits à marge négative : 4 (voir section 7)
 <li><strong>A</strong> : produits représentant jusqu'à 80 % du CA ; <strong>B</strong> : de 80 % à 95 % ; <strong>C</strong> : au-delà de 95 %.</li>
 <li><strong>REORDER</strong> : classe A, lenteur de vente ≤ 1,5 (rotation très rapide) et marge positive → risque de rupture.</li>
 <li><strong>PROMO</strong> : classe B ou C et lenteur de vente &gt; 4 → stock qui dort.</li>
+</ul>
+<p><em>Seuil resserré par rapport à la v1 (≥ 3) : la bande 3,0-3,4 concentre ~70 produits à petits volumes (artefact de réassort : 3 en stock, 1 vendu — 11 % du catalogue), pas du stock dormant. Le seuil &gt; 4 isole la queue de distribution (lenteur jusqu'à 23,7) et produit une liste courte et actionnable, cohérente avec la logique des flags REORDER et CHECK.</em></p>
+<ul>
 <li><strong>CHECK</strong> : anomalie détectée (Isolation Forest, section 7) ou marge négative → vérification manuelle.</li>
 </ul>
 </div>
@@ -9795,7 +9798,7 @@ Produits à marge négative : 4 (voir section 7)
 
 <span class="n">conditions</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">(</span><span class="n">total</span><span class="p">[</span><span class="s2">"ABC"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"A"</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">total</span><span class="p">[</span><span class="s2">"rotation_stock"</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">1.5</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">total</span><span class="p">[</span><span class="s2">"taux_marge"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">),</span>
-    <span class="p">(</span><span class="n">total</span><span class="p">[</span><span class="s2">"ABC"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">]))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">total</span><span class="p">[</span><span class="s2">"rotation_stock"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">total</span><span class="p">[</span><span class="s2">"ABC"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">"B"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">]))</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">total</span><span class="p">[</span><span class="s2">"rotation_stock"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">),</span>  <span class="c1"># seuil resserré vs v1 (&gt;= 3) : voir justification en markdown ci-dessus</span>
     <span class="p">(</span><span class="n">total</span><span class="p">[</span><span class="s2">"anomalie_if"</span><span class="p">])</span> <span class="o">|</span> <span class="p">(</span><span class="n">total</span><span class="p">[</span><span class="s2">"taux_marge"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">),</span>
 <span class="p">]</span>
 <span class="n">total</span><span class="p">[</span><span class="s2">"action_flag"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">conditions</span><span class="p">,</span> <span class="p">[</span><span class="s2">"reorder"</span><span class="p">,</span> <span class="s2">"promo"</span><span class="p">,</span> <span class="s2">"check"</span><span class="p">],</span> <span class="n">default</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
@@ -9819,13 +9822,7 @@ Produits à marge négative : 4 (voir section 7)
 reorder    101
 check       16
 promo        4
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
+
 Répartition ABC : {'A': 420, 'C': 225, 'B': 180}
 </pre>
 </div>

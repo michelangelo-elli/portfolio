@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>notebook-bottleneck-v2</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>ELLI_Michelangelo_notebook_v2_112026</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7909,7 +7909,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>python   : 3.12.15
+<pre>python   : 3.12.16
 pandas   : 3.0.2
 numpy    : 2.4.4
 pandera  : 0.35.0
@@ -7996,7 +7996,7 @@ liaison  :   825 lignes x  2 colonnes
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pandera</span><span class="w"> </span><span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Check</span><span class="p">,</span> <span class="n">DataFrameSchema</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pandera.pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Check</span><span class="p">,</span> <span class="n">DataFrameSchema</span>
 
 <span class="n">schema_erp_brut</span> <span class="o">=</span> <span class="n">DataFrameSchema</span><span class="p">({</span>
     <span class="s2">"product_id"</span><span class="p">:</span> <span class="n">Column</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">Check</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
@@ -8046,38 +8046,6 @@ liaison  :   825 lignes x  2 colonnes
 <pre>[OK] erp brut : 825 lignes conformes au contrat
 [OK] liaison : 825 lignes conformes au contrat
 [OK] web brut : 1513 lignes conformes au contrat
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/tmp/ipykernel_13248/1017075853.py:3: FutureWarning: Importing pandas-specific classes and functions from the
-top-level pandera module will be **removed in a future version of pandera**.
-If you're using pandera to validate pandas objects, we highly recommend updating
-your import:
-
-```
-# old import
-import pandera as pa
-
-# new import
-import pandera.pandas as pa
-```
-
-If you're using pandera to validate objects from other compatible libraries
-like pyspark or polars, see the supported libraries section of the documentation
-for more information on how to import pandera:
-
-https://pandera.readthedocs.io/en/stable/supported_libraries.html
-
-To disable this warning, set the environment variable:
-
-```
-export DISABLE_PANDERA_IMPORT_WARNING=True
-```
-
-  schema_erp_brut = DataFrameSchema({
 </pre>
 </div>
 </div>
@@ -8142,6 +8110,11 @@ export DISABLE_PANDERA_IMPORT_WARNING=True
 <td>R8. Ventes négatives</td>
 <td>Valeur absolue</td>
 <td>Retours/annulations saisis en négatif</td>
+</tr>
+<tr>
+<td>R9. Lignes web sans <code>sku</code> (retours sans code article)</td>
+<td><strong>Exclues de la fusion</strong></td>
+<td>Non rattachables par définition ; sans exclusion, pandas associerait la clé vide à tous les produits non vendus en ligne (NaN = NaN)</td>
 </tr>
 </tbody>
 </table>
@@ -8264,7 +8237,7 @@ R3 : 2 incohérences stock_status corrigées
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># --- WEB : règles R4 à R8 ---</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># --- WEB : règles R4 à R9 ---</span>
 <span class="n">COLS_WEB</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"sku"</span><span class="p">,</span> <span class="s2">"total_sales"</span><span class="p">,</span> <span class="s2">"product_type"</span><span class="p">,</span> <span class="s2">"post_title"</span><span class="p">,</span> <span class="s2">"post_name"</span><span class="p">]</span>
 <span class="n">w</span> <span class="o">=</span> <span class="n">web</span><span class="p">[</span><span class="n">COLS_WEB</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
@@ -8289,6 +8262,14 @@ R3 : 2 incohérences stock_status corrigées
 <span class="n">n_cles_dup</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s2">"sku_key"</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"nb_nulls"</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"sku_key"</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="s2">"first"</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">"nb_nulls"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"R6 : </span><span class="si">{</span><span class="n">n_cles_dup</span><span class="si">}</span><span class="s2"> lignes en doublon de clé -&gt; </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="si">}</span><span class="s2"> lignes conservées"</span><span class="p">)</span>
+
+<span class="c1"># R9 : les lignes web sans `sku` ne peuvent être rattachées à aucun produit.</span>
+<span class="c1"># On les exclut AVANT la fusion : contrairement à SQL, pandas fait correspondre</span>
+<span class="c1"># les clés vides entre elles (NaN = NaN) - sans cette exclusion, une ligne sans</span>
+<span class="c1"># clé serait rattachée à tous les produits non vendus en ligne.</span>
+<span class="n">n_sans_cle</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="s2">"sku_key"</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="n">w</span><span class="p">[</span><span class="s2">"sku_key"</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"R9 : </span><span class="si">{</span><span class="n">n_sans_cle</span><span class="si">}</span><span class="s2"> ligne(s) web sans clé exclue(s) de la fusion (non rattachables)"</span><span class="p">)</span>
 <span class="n">w</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8307,6 +8288,7 @@ R4 : 1 lignes vides supprimées
 R7 : clés non numériques conservées : ['13127-1', 'bon-cadeau-25-euros']
 R8 : 2 ventes négatives -&gt; valeur absolue
 R6 : 12 lignes en doublon de clé -&gt; 715 lignes conservées
+R9 : 1 ligne(s) web sans clé exclue(s) de la fusion (non rattachables)
 </pre>
 </div>
 </div>
@@ -8983,7 +8965,7 @@ Outliers z&gt;3 : 17 produits
 <tr>
 <th>724</th>
 <td>6324</td>
-<td>Pierre Jean Villa Côte Rôtie Fongeant 2017</td>
+<td>NaN</td>
 <td>92.0</td>
 <td>2.244932</td>
 </tr>
@@ -9011,7 +8993,7 @@ Outliers z&gt;3 : 17 produits
 <tr>
 <th>19</th>
 <td>4055</td>
-<td>Pierre Jean Villa Côte Rôtie Fongeant 2017</td>
+<td>NaN</td>
 <td>86.1</td>
 <td>2.023154</td>
 </tr>
@@ -9025,7 +9007,7 @@ Outliers z&gt;3 : 17 produits
 <tr>
 <th>486</th>
 <td>5070</td>
-<td>Pierre Jean Villa Côte Rôtie Fongeant 2017</td>
+<td>NaN</td>
 <td>84.7</td>
 <td>1.970529</td>
 </tr>
@@ -9186,12 +9168,12 @@ Outliers z&gt;3 : 17 produits
 <tr>
 <th>724</th>
 <td>6324</td>
-<td>Pierre Jean Villa Côte Rôtie Fongeant 2017</td>
+<td>NaN</td>
 <td>92.00</td>
 <td>99.00</td>
 <td>-7.00</td>
 <td>18</td>
-<td>17.0</td>
+<td>NaN</td>
 </tr>
 <tr>
 <th>393</th>
@@ -9202,6 +9184,16 @@ Outliers z&gt;3 : 17 produits
 <td>5.04</td>
 <td>121</td>
 <td>36.0</td>
+</tr>
+<tr>
+<th>344</th>
+<td>4726</td>
+<td>François Baur Pinot Noir Schlittweg 2017</td>
+<td>12.70</td>
+<td>6.82</td>
+<td>5.88</td>
+<td>0</td>
+<td>122.0</td>
 </tr>
 <tr>
 <th>79</th>
@@ -9242,16 +9234,6 @@ Outliers z&gt;3 : 17 produits
 <td>34.10</td>
 <td>145</td>
 <td>0.0</td>
-</tr>
-<tr>
-<th>476</th>
-<td>5026</td>
-<td>Champagne Agrapart &amp;amp; Fils Minéral Extra Br...</td>
-<td>86.80</td>
-<td>50.13</td>
-<td>36.67</td>
-<td>101</td>
-<td>9.0</td>
 </tr>
 <tr>
 <th>475</th>
@@ -9368,7 +9350,7 @@ Outliers z&gt;3 : 17 produits
 <tr>
 <th>724</th>
 <td>6324</td>
-<td>Pierre Jean Villa Côte Rôtie Fongeant 2017</td>
+<td>NaN</td>
 <td>92.00</td>
 <td>99.00</td>
 <td>-0.076087</td>
@@ -9377,7 +9359,7 @@ Outliers z&gt;3 : 17 produits
 <tr>
 <th>817</th>
 <td>7196</td>
-<td>Pierre Jean Villa Côte Rôtie Fongeant 2017</td>
+<td>NaN</td>
 <td>31.00</td>
 <td>31.20</td>
 <td>-0.006452</td>
@@ -9511,21 +9493,21 @@ Outliers z&gt;3 : 17 produits
 <tbody>
 <tr>
 <th>pandas</th>
-<td>4.4</td>
+<td>3.9</td>
 <td>153748.1</td>
 <td>1.00</td>
 </tr>
 <tr>
 <th>Polars</th>
-<td>3.0</td>
+<td>27.1</td>
 <td>153748.1</td>
-<td>0.68</td>
+<td>6.95</td>
 </tr>
 <tr>
 <th>DuckDB</th>
-<td>18.7</td>
+<td>11.3</td>
 <td>153748.1</td>
-<td>4.25</td>
+<td>2.90</td>
 </tr>
 </tbody>
 </table>
@@ -9541,7 +9523,7 @@ Outliers z&gt;3 : 17 produits
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><strong>Résultat et décision.</strong> Les trois outils produisent <strong>exactement le même CA</strong> (153 748,10 € — l'ancre tient partout). Sur ces volumes (825 produits × 714 lignes web rattachées), l'opération complète prend quelques <strong>millisecondes</strong> dans les trois cas : l'écart, même s'il est favorable à Polars/DuckDB en relatif, est sans conséquence pratique — le notebook complet s'exécute en moins d'une minute.</p>
+<p><strong>Résultat et décision.</strong> Les trois outils produisent <strong>exactement le même CA</strong> (153 748,10 € — l'ancre tient partout). Sur ces volumes (825 produits × 714 lignes web rattachées), l'opération complète prend quelques <strong>millisecondes</strong> dans les trois cas : les écarts relatifs, qui changent de sens d'une exécution à l'autre sur de si petits volumes (bruit de mesure), sont sans conséquence pratique — le notebook complet s'exécute en moins d'une minute.</p>
 <p><strong>Décision documentée (journal IA)</strong> : pandas est <strong>conservé</strong>. Réécrire le pipeline n'apporterait rien de mesurable au métier, ajouterait un risque de régression et un coût de formation — une décision de <strong>sobriété</strong> (ne pas réécrire ce qui fonctionne). Réévaluation planifiée si les volumes dépassent environ 100 000 lignes par export : le code du benchmark ci-dessus servira alors de test de référence.</p>
 </div>
 </div>
@@ -9631,7 +9613,7 @@ Outliers z&gt;3 : 17 produits
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>446 produits représentent 80 % du CA (54.06 % du catalogue)
+<pre>421 produits représentent 80 % du CA (51.03 % du catalogue)
 </pre>
 </div>
 </div>
@@ -9671,8 +9653,8 @@ Outliers z&gt;3 : 17 produits
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Total de produits vendus : 7628
-Moyenne par produit : 9.25
+<pre>Total de produits vendus : 6081
+Moyenne par produit : 7.37
 </pre>
 </div>
 </div>
@@ -9730,7 +9712,7 @@ Moyenne par produit : 9.25
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Lenteur de vente : min 0.00, médiane 2.29, max 31.25
+<pre>Lenteur de vente : min 0.00, médiane 2.40, max 31.25
 Valorisation totale des stocks : 298,627.66 €
 Nombre total de produits en stock : 17822
 </pre>
@@ -9833,10 +9815,10 @@ Produits à marge négative : 4 (voir section 7)
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>action_flag
-           641
-reorder    164
-check       15
-promo        5
+           704
+reorder    101
+check       16
+promo        4
 </pre>
 </div>
 </div>
@@ -9844,7 +9826,7 @@ promo        5
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>
-Répartition ABC : {'A': 445, 'B': 222, 'C': 158}
+Répartition ABC : {'A': 420, 'C': 225, 'B': 180}
 </pre>
 </div>
 </div>

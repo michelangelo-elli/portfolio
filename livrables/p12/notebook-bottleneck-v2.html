@@ -7909,11 +7909,11 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>python   : 3.12.16
-pandas   : 3.0.2
-numpy    : 2.4.4
-pandera  : 0.35.0
-sklearn  : 1.9.0
+<pre>python   : 3.14.0
+pandas   : 3.1.0
+numpy    : 2.5.4
+pandera  : 0.36.0
+sklearn  : 1.9.1
 plotly   : 7.1.0
 </pre>
 </div>
@@ -9493,21 +9493,21 @@ Outliers z&gt;3 : 17 produits
 <tbody>
 <tr>
 <th>pandas</th>
-<td>3.3</td>
+<td>3.4</td>
 <td>153748.1</td>
 <td>1.00</td>
 </tr>
 <tr>
 <th>Polars</th>
-<td>1.9</td>
+<td>24.2</td>
 <td>153748.1</td>
-<td>0.58</td>
+<td>7.12</td>
 </tr>
 <tr>
 <th>DuckDB</th>
-<td>3.4</td>
+<td>11.6</td>
 <td>153748.1</td>
-<td>1.03</td>
+<td>3.41</td>
 </tr>
 </tbody>
 </table>
@@ -9556,7 +9556,7 @@ Outliers z&gt;3 : 17 produits
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"CA total (web) : </span><span class="si">{</span><span class="n">ca_web</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2"> €"</span><span class="p">)</span>
 
 <span class="n">top20_ca</span> <span class="o">=</span> <span class="n">total</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s2">"ca"</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">top20_ca</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"post_title"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"ca"</span><span class="p">,</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">top20_ca</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"ca"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"post_title"</span><span class="p">,</span>
              <span class="n">title</span><span class="o">=</span><span class="s2">"Top 20 des produits par chiffre d'affaires"</span><span class="p">,</span>
              <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">"ca"</span><span class="p">:</span> <span class="s2">"CA (€)"</span><span class="p">,</span> <span class="s2">"post_title"</span><span class="p">:</span> <span class="s2">"Produit"</span><span class="p">})</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">xaxis_tickangle</span><span class="o">=-</span><span class="mi">45</span><span class="p">)</span>
@@ -9636,7 +9636,7 @@ Outliers z&gt;3 : 17 produits
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Moyenne par produit : </span><span class="si">{</span><span class="n">ventes</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="n">top20_q</span> <span class="o">=</span> <span class="n">total</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s2">"total_sales"</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">top20_q</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"post_title"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"total_sales"</span><span class="p">,</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">top20_q</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"total_sales"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"post_title"</span><span class="p">,</span>
              <span class="n">title</span><span class="o">=</span><span class="s2">"Top 20 des produits par quantité vendue"</span><span class="p">,</span>
              <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">"total_sales"</span><span class="p">:</span> <span class="s2">"Quantité vendue"</span><span class="p">,</span> <span class="s2">"post_title"</span><span class="p">:</span> <span class="s2">"Produit"</span><span class="p">})</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">xaxis_tickangle</span><span class="o">=-</span><span class="mi">45</span><span class="p">)</span>
@@ -9695,7 +9695,7 @@ Moyenne par produit : 7.37
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Nombre total de produits en stock : </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">total</span><span class="p">[</span><span class="s1">'stock_quantity'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="n">flop20</span> <span class="o">=</span> <span class="n">total</span><span class="p">[</span><span class="n">total</span><span class="p">[</span><span class="s2">"rotation_stock"</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="s2">"rotation_stock"</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">flop20</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"post_title"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"rotation_stock"</span><span class="p">,</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">flop20</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"rotation_stock"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"post_title"</span><span class="p">,</span>
              <span class="n">title</span><span class="o">=</span><span class="s2">"FLOP 20 — les produits qui se vendent le plus lentement"</span><span class="p">,</span>
              <span class="n">labels</span><span class="o">=</span><span class="p">{</span><span class="s2">"rotation_stock"</span><span class="p">:</span> <span class="s2">"Lenteur de vente (stock / ventes)"</span><span class="p">,</span> <span class="s2">"post_title"</span><span class="p">:</span> <span class="s2">"Produit"</span><span class="p">})</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">xaxis_tickangle</span><span class="o">=-</span><span class="mi">45</span><span class="p">)</span>

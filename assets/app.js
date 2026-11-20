@@ -555,8 +555,7 @@ const PROJECTS = [
     },
     livrables: [
       { label: { fr: 'Notebook amélioré v2 (interactif)', en: 'Improved notebook v2 (interactive)', it: 'Notebook migliorato v2 (interattivo)' }, type: 'embed', url: 'livrables/p12/notebook-bottleneck-v2.html', view: 'livrables/p12/notebook-bottleneck-v2.html' },
-      { label: { fr: 'Documentation de la démarche (veille, CDC, POC, traçabilité IA)', en: 'Approach documentation (watch, specs, POCs, AI traceability)', it: 'Documentazione del percorso (veille, capitolato, POC, tracciabilità IA)' }, type: 'embed', url: 'livrables/p12/documentation-de-la-demarche.pdf', view: 'livrables/p12/documentation-de-la-demarche.pdf' },
-      { label: { fr: 'Glossaire des concepts et sigles', en: 'Glossary of concepts and acronyms', it: 'Glossario dei concetti e delle sigle' }, type: 'embed', url: 'livrables/p12/glossaire-concepts.pdf', view: 'livrables/p12/glossaire-concepts.pdf' }
+      { label: { fr: 'Documentation de la démarche (veille, CDC, POC, traçabilité IA)', en: 'Approach documentation (watch, specs, POCs, AI traceability)', it: 'Documentazione del percorso (veille, capitolato, POC, tracciabilità IA)' }, type: 'embed', url: 'livrables/p12/documentation-de-la-demarche.pdf', view: 'livrables/p12/documentation-de-la-demarche.pdf' }
     ]
   }
 ];
